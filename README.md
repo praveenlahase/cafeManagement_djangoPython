@@ -1,0 +1,1 @@
+Here the project created using python and django. This project is used to perform cafe management which has the functionality of booking table by logging in and payment for the booking. It also has the registration for the new user.
