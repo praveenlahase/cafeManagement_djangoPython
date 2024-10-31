@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayPal Payment</title>
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_SANDBOX_CLIENT_ID"></script>
+</head>
+
+<body>
+    <h1>Pay with PayPal</h1>
+    <form id="payment-form" method="post" action="{% url 'make_payment' %}">
+        {% csrf_token %}
+        <button type="submit" id="paypal-button">Pay Now</button>
+    </form>
+
+    <script>
+        // Optional: Handling the PayPal button rendering and functionality if needed
+    </script>
+</body>
+
+</html>

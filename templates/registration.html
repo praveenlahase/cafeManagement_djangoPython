@@ -1,0 +1,177 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Site Metas -->
+    <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/gif" />
+    <title>Cafeessa | Login</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            background-image: url('/static/images/login.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100vh;
+            /* Full viewport height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-box {
+            background-color: rgba(255, 255, 255, 0);
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 500px;
+            /* Adjust for a reasonable form size */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            width: 100%;
+        }
+
+        .login-button,
+        .login-btm {
+            margin-top: 0px;
+        }
+
+        .login-btm a {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+        }
+        select {
+            font-size: 14px; /* Set the font size of the dropdown text */
+        }
+
+        /* Option elements within the select */
+        option {
+            font-size: 11px; /* Set the font size for the dropdown options */
+        }
+        #gender{
+            font-size: 11px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="login-box" style="height: 590px;margin-top: 0px;">
+            <div class="login-title" style="
+            margin-top: 0px;
+            height: 30px; ">
+                <h3>Registration</h3>
+                <hr>
+            </div>
+            {% if errmsg %}
+            <div class="alert alert-danger mt-5">
+                {{errmsg}}
+            </div>
+            {% endif %}
+            {% if sucmsg %}
+            <div class="alert alert-success mt-5">
+                {{sucmsg}}
+            </div>
+            {% endif %}
+            <form action="/registration" method="POST">
+                {% csrf_token %}
+                <br>
+                <div class="form-group">
+                    <label class="form-control-label">
+                        Full Name
+                    </label>
+                    <input type="text" name="fullname" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label">
+                        Address
+                    </label>
+                    <input type="text" name="address" class="form-control" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label">
+                            City
+                        </label>
+                        <input type="text" name="city" class="form-control" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label">
+                            Mobile No.
+                        </label>
+                        <input type="text" name="mobileno" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label">
+                            Email
+                        </label>
+                        <input type="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label">
+                            Gender
+                        </label>
+                        <select name="gender" id="gender"class="form-control" required>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label">
+                            Password
+                        </label>
+                        <input type="password" name="password" class="form-control" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label">
+                            Confirm Password
+                        </label>
+                        <input type="text" name="cpassword" class="form-control" required>
+
+                    </div>
+                </div>
+
+                <div class="login-btm">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-success">Register</button>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="/login" class="btn btn-info" role="button"
+                                style="margin-top: 0px;margin-left: 135px;">Login</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

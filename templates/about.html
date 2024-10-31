@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+{% load static %}
+
+<!-- about section -->
+<section id="about" class="about_section layout_padding-bottom">
+    <div class="container">
+        <div class="row justify-content-center">
+
+            <div class="col-md-6 text-center">
+                <div class="heading_container">
+                    <h2>About Us</h2>
+                    <hr>
+                </div>
+                <div class="img-box">
+                    <img src="{% static 'images/about-img.jpg' %}" alt="" style="margin-top: 50px;">
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center" style="margin-top: 20px;">
+            <div class="col-md-6">
+                <div class="detail-box">
+
+                    <p>
+                        Welcome to <b>Espresso Odyssey</b>, where passion for coffee meets a love for community. Our journey began
+                        with a simple goal: to create a space where people can come together, enjoy exceptional coffee,
+                        and feel at home. We believe that great coffee is an experience, not just a drink, and every cup
+                        served is a testament to our dedication to quality, craftsmanship, and creativity.
+                        <br><br>
+                        At <b>Espresso Odyssey</b>, we source the finest beans from sustainable farms and roast them in-house to
+                        bring out the rich, distinctive flavors in every blend. Our team of skilled baristas is
+                        committed to delivering a perfect brew, whether it's a classic espresso or a specialty creation
+                        tailored to your taste.
+                        <br><br>
+                        But we’re more than just coffee—we’re a community. Our cafe is a place where friends gather,
+                        conversations flow, and moments are shared. With cozy seating, inviting decor, and a menu of
+                        freshly prepared treats, we aim to offer a warm, welcoming environment where everyone feels like
+                        they belong.
+                        <br><br>
+                        Thank you for being a part of our story. We look forward to sharing many more delicious moments
+                        with you.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End of about us page -->
+{% endblock 'main' %}

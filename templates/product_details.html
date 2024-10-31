@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+{% load static %}
+<section class="product-detail-section">
+    <div class="container">
+        <div class="heading_container">
+            <h2>Product Details</h2>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card product-card">
+                    <div class="row no-gutters">
+                        <!-- Product Image -->
+                        <div class="col-md-6">
+                            <img src="/{{ product.image }}" class="product-img" alt="{{ product.name }}">
+                        </div>
+                        <!-- Product Information -->
+                        <div class="col-md-6">
+                            <div class="product-info">
+                                <h3>{{ product.name }}</h3>
+                                <p>{{ product.description }}</p>
+                                <p class="product-price">Price: ₹{{ product.price }}</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock 'main' %}

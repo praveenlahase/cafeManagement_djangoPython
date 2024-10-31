@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+{% load static %}
+
+<div id="paypal-button-container"></div>
+
+<!-- PayPal JavaScript SDK -->
+<script
+    src="https://www.paypal.com/sdk/js?client-id=Ab2dr7qcnTfwumON3jrnBxjjs6Mufa9NOBFPdHNwcFtv8G68GYKUovTcJt_MCHSLfohoYCDNCYS_xGBw&currency=USD"></script>
+
+<script>
+    // paypal.Buttons({
+    //     createOrder: function (data, actions) {
+    //         return fetch('/paypal/order/create/', {
+    //             method: 'post',
+    //             headers: {
+    //                 'content-type': 'application/json'
+    //             },
+    //             body: JSON.stringify({
+    //                 // Add any order data you need to send
+    //             })
+    //         }).then(function (response) {
+    //             if (!response.ok) {
+    //                 throw new Error('Network response was not ok');
+    //             }
+    //             return response.json();
+    //         }).then(function (orderData) {
+    //             if (!orderData.id) {
+    //                 throw new Error('Expected an order ID to be passed');
+    //             }
+    //             // Use the order ID in your redirect
+    //             const approvalUrl = orderData.approval_url;  // Get the approval URL from the response
+    //             window.location.href = approvalUrl;  // Redirect to PayPal for approval
+    //         });
+    //     },
+    //     onApprove: function (data, actions) {
+    //         return actions.order.capture().then(function (details) {
+    //             alert('Transaction completed by ' + details.payer.name.given_name);
+    //             // Implement success handling logic here
+    //         });
+    //     },
+    //     onError: function (err) {
+    //         console.error(err);
+    //         alert('An error occurred during the transaction');
+    //     }
+    // }).render('#paypal-button-container');
+    
+</script>
+
+{% endblock 'main' %}

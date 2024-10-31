@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+{% load static %}
+
+<section class="product_section layout_padding">
+    <div class="container">
+        <div class="heading_container heading_center">
+            <h2>All Products</h2>
+        </div>
+
+        <div class="row">
+            <!-- Loop over all products from the database -->
+            {% for product in products %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="/{{ product.image }}" class="card-img-top" alt="{{ product.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">{{ product.description }}</p>
+                        <p class="card-text"><strong>Price: ₹{{ product.price }}</strong></p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="{% url 'product_details' product.id %}" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock 'main' %}

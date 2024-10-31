@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking Details</title>
+</head>
+<body>
+    <h1>Booking Details</h1>
+
+    {% if booking %}
+        <p><strong>Full Name:</strong> {{ booking.fullname }}</p>
+        <p><strong>Email:</strong> {{ booking.bookemail }}</p>
+        <p><strong>Contact Number:</strong> {{ booking.connum }}</p>
+        <p><strong>Number of People:</strong> {{ booking.people }}</p>
+        <p><strong>Booking Date:</strong> {{ booking.bookdate }}</p>
+        <p><strong>Booking Time:</strong> {{ booking.booktime }}</p>
+        <p><strong>Booking Note:</strong> {{ booking.booknote }}</p>
+        <p><strong>Booking Created On:</strong> {{ booking.createdate }}</p>
+        <p><strong>Booking Status (Cancelled?):</strong> {{ booking.isCancelled }}</p>
+    {% else %}
+        <p>No booking details available.</p>
+    {% endif %}
+
+    <div class="btn_box">
+        <a href="/makepayment"><button type="submit" class="btn btn-danger">Pay Now</button></a>
+        <button type="submit">Cancel</button>
+    </div>
+
+</body>
+</html>

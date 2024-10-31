@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/x-icon" />
+  <title>Espresso Odyssey&#174;</title>
+
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+  <!-- font awesome style -->
+  <!-- <link href="css/font-awesome.min.css" rel="stylesheet"/> -->
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+ 
+</head>
+
+<body>
+
+  <!-- header section start -->
+
+  <header class="header_section">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg custom_nav-container">
+        <a href="/" class="navbar-brand">
+          <span>Espresso Odyssey&#174;</span></a>
+
+        {% if user.is_authenticated %}
+        <h5 style="margin-left: 450px;"><i><span style="color:white;">Welcome, {{ user.fullname }}!</span></i></h5>
+        {% endif %}
+
+        <div class="" id="">
+          <div class="custom_menu-btn">
+            <button onclick="openNav()">
+              <span class="s-1"></span>
+              <span class="s-2"></span>
+              <span class="s-3"></span>
+            </button>
+            <div class="overlay" id="myNav">
+              <div class="overlay-content">
+                <a href="/#home" onclick="closeNav()">Home</a>
+                <a href="/#about" onclick="closeNav()">About</a>
+                <a href="/#book" onclick="closeNav()">Book A Table</a>
+                <a href="/#products" onclick="closeNav()">Products</a>
+                {% if user.is_authenticated %}
+                <a href="/logout" onclick="closeNav()">Logout</a>
+                <h6><span style="color:white;">Welcome, {{ user.fullname }}!</span></h6>
+                {% else %}
+                <a href="/registration" onclick="closeNav()">Registration</a>
+                <a href="/login" onclick="closeNav()">Login</a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- End of header section -->

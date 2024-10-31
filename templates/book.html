@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+{% load static %}
+
+<!-- contact section -->
+<section class="contact_section layout_padding">
+    <div class="contact_bg_box">
+        <img src="{% static 'images/contact-bg.jpg' %}" alt="">
+    </div>
+    <div class="container">
+        <div class="heading_container heading_center">
+            <h2>Book A Table</h2>
+        </div>
+        {% if errmsg %}
+        <div class="alert alert-danger mt-5">
+            {{errmsg}}
+            {% endif %}
+            {% if sucmsg %}
+            <div class="alert alert-success mt-5">
+                {{sucmsg}}
+            </div>
+            {% endif %}
+            {% if booking %}
+            <div class="">
+                <div class="row">
+                    <div class="col-md-7 mx-auto">
+                        <form action="">
+                            {% csrf_token %}
+                            <div class="contact_form-container">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <input type="text" placeholder="{{ booking.fullname }}" disabled>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" placeholder="{{ booking.bookemail }}" disabled>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <input type="number" placeholder="{{ booking.connum }}" disabled />
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="number" placeholder="{{ booking.people }}" disabled />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <input type="date" value="{{ booking.bookdate }}" disabled />
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="time" value="{{ booking.booktime }}" disabled />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <div class="col-sm-6">
+                                    <input type="text" disabled placeholder="{{ booking.booknote }}"
+                                        class="message_input" />
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="text" id="bookamount" value="{{ booking.finalPrice }}" disabled />
+                                </div>
+                                </div>
+                                <div class="btn_box">
+                                    <a href="/makepayment" class="btn btn-danger">Pay Now</a>
+                                    <button type="submit">Cancel</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+</section>
+<!-- End of contact section -->
+
+
+{% endblock 'main' %}

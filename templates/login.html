@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/gif" />
+    <title>Cafeessa | Login</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+</head>
+<style>
+    body {
+        background-image: url('/static/images/login.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 100vh;
+        /* Full viewport height */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-3 login-box" style="height: auto;width:150px;margin-top: 10px;">
+                <div class="col-lg-12 login-title">
+                    <h3>Login</h3>
+                </div>
+                {% if errmsg %}
+                <div class="alert alert-danger mt-5">
+                    {{errmsg}}
+                </div>
+                {% endif %}
+
+                <div class="col-lg-12 login-form">
+                    <div class="col-lg-12 login-form">
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label class="form-control-label">
+                                    Username
+                                </label>
+                                <input type="text" name="luname" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label">
+                                    Password
+                                </label>
+                                <input type="password" name="lupass" class="form-control" required>
+                            </div>
+
+                            <div class="row" style="margin-bottom: 25px;">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-success">
+                                        Login
+                                    </button>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="/registration" class="btn btn-info" role="button"
+                                        >Register</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+</body>
+
+</html>

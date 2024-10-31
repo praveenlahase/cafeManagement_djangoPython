@@ -1,0 +1,219 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+{% load static %}
+
+
+<!-- slider section -->
+<section id="home" class="slider_section position-relative">
+  <div class="slider_bg_box">
+    <img src="{% static 'images/slider-bg.jpg' %}" alt="">
+  </div>
+  <div class="slider_bg"></div>
+  <div class="container">
+    <div class="col-md-6 ml-auto">
+      <div class="detail-box">
+        <h1>Welcome to <br>Espresso Odyssey</h1>
+        <p>Step into a world of warmth, comfort, and delightful aromas!<br>At <strong>Espresso Odyssey</strong>, we
+          believe in creating a perfect space for you to unwind, socialize, or simply enjoy a moment of peace with your
+          favorite cup of coffee. Whether you're here to work, relax, or savor a delicious bite, our welcoming ambiance
+          and handcrafted beverages are made to enrich your day. From freshly brewed coffee to delectable treats, every
+          detail is crafted with care, just for you.
+          <br>
+          <br>
+          Join us for an unforgettable cafe experience, where every sip tells a story, and every visit feels like coming
+          home.
+
+        </p>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End of slider section -->
+
+<!-- Special section -->
+<section id="products" class="spcl_section layout_padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Our Specials</h2>
+        <br><br>
+        <div class="detail_container">
+          <div class="detail-box">
+            <img src="{% static 'images/s1.png' %}" alt="">
+            <h5>Original Coffee</h5>
+            <p>
+              At <b>Espresso Odyssey</b>, we take pride in serving only the finest Original Coffee. Sourced from the
+              best coffee-growing regions in the world, our beans are carefully selected, roasted to perfection, and
+              brewed with passion. Every cup delivers a rich, full-bodied flavor that captures the essence of authentic,
+              artisanal coffee.
+
+              Whether you prefer a bold espresso, a smooth latte, or a simple black brew, our Original Coffee promises
+              an exceptional experience that true coffee lovers will appreciate. It’s not just coffee—it’s a tradition,
+              a craft, and a moment to savor.
+              <br><br>
+              Come and taste the difference in every sip.
+
+            </p>
+          </div>
+          <div class="detail-box">
+            <img src="{% static 'images/s2.png' %}" alt="">
+            <h5>Self Roasted</h5>
+            <p>
+              At <b>Espresso Odyssey</b>, we believe that the perfect cup of coffee begins with the roasting process.
+              That’s why we proudly offer Self-Roasted Coffee, where every batch is roasted in-house to bring out the
+              unique flavors and aromas of the finest coffee beans. Our skilled roasters carefully control the
+              temperature and timing to ensure that each roast is tailored to perfection—bold, balanced, and bursting
+              with character.
+              <br><br>
+              With our self-roasted approach, we guarantee freshness and authenticity in every cup. You can taste the
+              difference in the rich, robust flavors, knowing that every bean has been roasted with care and passion
+              right here at our cafe.
+              <br><br>
+              Experience coffee at its purest—crafted from bean to brew just for you.
+            </p>
+          </div>
+          <div class="detail-box">
+            <img src="{% static 'images/s3.png' %}" alt="">
+            <h5>10 COffee Items</h5>
+            <p>Explore Our 10 Signature Coffee Creations
+              <br><br>
+              At <b>Espresso Odyssey</b>, we invite you to embark on a journey of flavor with our 15 unique coffee
+              creations, each
+              crafted to satisfy every coffee lover’s taste. From the classics to bold innovations, we have something
+              for everyone.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-5 ml-auto">
+        <div class="img-box">
+          <img src="{% static 'images/spcl-img.jpg' %}" alt="">
+        </div>
+      </div>
+    </div>
+    <a href="/products" class="btn btn-success">Try Our Products</a>
+  </div>
+  </div>
+
+  </div>
+</section>
+<!-- End of special section -->
+
+<!-- about section -->
+<section id="about" class="about_section layout_padding-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="img-box">
+          <img src="{% static 'images/about-img.jpg' %}" alt="">
+
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="detail-box">
+          <div class="heading_container">
+            <h2>About Us</h2>
+          </div>
+          <p>
+            Welcome to <b>Espresso Odyssey</b>, where passion for coffee meets a love for community. Our journey began with a simple
+            goal: to create a space where people can come together, enjoy exceptional coffee, and feel at home. We
+            believe that great coffee is an experience, not just a drink, and every cup served is a testament to our
+            dedication to quality, craftsmanship, and creativity.
+            <br><br>
+            At <b>Espresso Odyssey</b>.....
+          </p>
+          <a href="/about">Read More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End of about us page -->
+
+<!-- contact section -->
+<section id="book" class="contact_section layout_padding">
+  <div class="contact_bg_box">
+    <img src="{% static 'images/contact-bg.jpg' %}" alt="">
+  </div>
+  <div class="container">
+    <div class="heading_container heading_center">
+      <h2>Book A Table</h2>
+    </div>
+    {% if errmsg %}
+    <div class="alert alert-danger mt-5">
+      {{errmsg}}
+    </div>
+    {% endif %}
+    {% if sucmsg %}
+    <div class="alert alert-success mt-5">
+      {{sucmsg}}
+    </div>
+    {% endif %}
+    <div class="">
+      <div class="row">
+        <div class="col-md-7 mx-auto">
+          <form action="{% url 'book_table' %}#book" method="POST">
+            {% csrf_token %}
+            <div class="contact_form-container">
+              <div class="row">
+                <div class="col-sm-6">
+                  <input type="text" placeholder="Full Name" name="fullname" required>
+                </div>
+                <div class="col-sm-6">
+                  <input type="text" placeholder="Email" name="bookemail" required>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <input type="text" maxlength="10" pattern="\d{10}" placeholder="Contact Number" name="connum"
+                    required />
+                </div>
+                <div class="col-sm-6">
+                  <input type="number" placeholder="Number of People" min="1" max="100" name="people" required />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <input type="date" placeholder="Select date" name="bookdate" required />
+                </div>
+                <div class="col-sm-6">
+                  <input type="time" placeholder="Select Time" name="booktime" required />
+                </div>
+              </div>
+              <div class="">
+                <input type="text" placeholder="Additional Note" name="booknote" class="message_input" />
+              </div>
+              <div class="btn_box">
+                <button type="submit">Book</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End of contact section -->
+
+
+
+<!-- Product Section -->
+<!-- <section id="products" class="products_section layout_padding-bottom"
+  style="background: url('/static/images/images_products.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; height:50vh;">
+  <div class="container d-flex justify-content-center align-items-center">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="detail-box text-center">
+          <div class="heading_container">
+            <h2 style="color: rgb(85, 214, 218);">Products</h2>
+          </div>
+          <a href="/products" class="btn btn-success">Try Our Products</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+<!-- End of Product Section -->
+{% endblock 'main' %}
